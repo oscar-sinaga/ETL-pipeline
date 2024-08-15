@@ -62,4 +62,4 @@
   - Otomasi semua task di atas
   - Jadwalkan otomasi semua task di atas dengan Crontab
 
-    ![ETL Pipeline Diagram](asset\ETL-pipeline-Flow.png)
+    ![ETL Pipeline Diagram](./asset/ETL-pipeline-Flow.png)
