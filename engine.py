@@ -10,7 +10,7 @@ def load_env(filepath):
                 os.environ[key] = value
 
 # Memuat file .env
-load_env('.env')
+load_env('data_source/.env')
 
 # Mengambil variabel lingkungan
 DB_USERNAME = os.getenv("DB_USERNAME")
