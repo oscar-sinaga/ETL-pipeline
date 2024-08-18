@@ -1,0 +1,13 @@
+version: "3"
+services:
+  sales_data_amazon:
+    image: shandytp/amazon-sales-data-docker-db:latest
+    container_name: sales_data_amazon
+    hostname: sales_data_amazon
+    restart: always
+    volumes:
+      - postgres_data_amazon_sales:/var/lib/postgresql/data
+    ports:
+      - 5433:5432
+volumes:
+  postgres_data_amazon_sales:
