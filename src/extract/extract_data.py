@@ -25,7 +25,11 @@ def extract_sales_data():
     try:
         # Using pandas to execute the SQL query and load data into a DataFrame
         df_sales = pd.read_sql(query, engine)
-        print("Connection successful, and data loaded.")
+        print("Connection to amazon_sales_data successful, and data loaded.")
+        
+        #Closed connection to database sales_data (etl_data)
+        engine.dispose()
+        print("Connection to amazon_sales_data closed")
         return df_sales
     except Exception as e:
         print("Connection failed:", e)
