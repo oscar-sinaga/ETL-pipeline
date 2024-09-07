@@ -19,11 +19,11 @@ def postgres_engine_sales_data():
     load_env()
 
     # Mengambil variabel lingkungan
-    DB_USERNAME = os.getenv("DB_USERNAME")
-    DB_PASSWORD = os.getenv("DB_PASSWORD")
-    DB_HOST = os.getenv("DB_HOST")
-    DB_NAME = os.getenv("DB_NAME")
-    DB_PORT = os.getenv("DB_PORT")
+    DB_USERNAME = os.getenv("DB_USERNAME_SALES_DATA")
+    DB_PASSWORD = os.getenv("DB_PASSWORD_SALES_DATA")
+    DB_HOST = os.getenv("DB_HOST_SALES_DATA")
+    DB_NAME = os.getenv("DB_NAME_SALES_DATA")
+    DB_PORT = os.getenv("DB_PORT_SALES_DATA")
 
     # Membuat string koneksi
     connection_string = f"postgresql://{DB_USERNAME}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}"
