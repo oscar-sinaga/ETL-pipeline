@@ -1,1 +1,456 @@
 2024-09-08 00:37:22,715 - INFO - ERROR - page 1 link 4  = https://regional.kompas.com/read/2024/09/07/235025378/konser-bondan-prakoso-di-lhokseumawe-dibatalkan-diganti-tahlil-untuk-tu-sop
+2024-09-08 18:36:17,657 - INFO - ERROR - page 1 link 5  = https://www.kompas.com/food/read/2024/09/08/181807975/cara-membuat-buttercream-sendiri-di-rumah-cuma-butuh-5-bahan
+2024-09-08 20:09:09,996 - INFO - [pid 31444] Worker Worker(salt=1551641386, workers=1, host=LAPTOP-038LGA7P, username=Oscar, pid=31444) done      ExtractScrapingData()
+2024-09-08 20:09:10,004 - DEBUG - 1 running tasks, waiting for next task to finish
+2024-09-08 20:09:10,005 - INFO - Informed scheduler that task   ExtractScrapingData__99914b932b   has status   DONE
+2024-09-08 20:09:10,005 - DEBUG - Asking scheduler for work...
+2024-09-08 20:09:10,006 - DEBUG - Pending tasks: 3
+2024-09-08 20:09:10,006 - INFO - [pid 31444] Worker Worker(salt=1551641386, workers=1, host=LAPTOP-038LGA7P, username=Oscar, pid=31444) running   TransformScrapingData()
+2024-09-08 20:09:10,197 - INFO - [pid 31444] Worker Worker(salt=1551641386, workers=1, host=LAPTOP-038LGA7P, username=Oscar, pid=31444) done      TransformScrapingData()
+2024-09-08 20:09:10,197 - DEBUG - 1 running tasks, waiting for next task to finish
+2024-09-08 20:09:10,199 - INFO - Informed scheduler that task   TransformScrapingData__99914b932b   has status   DONE
+2024-09-08 20:09:10,199 - DEBUG - Asking scheduler for work...
+2024-09-08 20:09:10,200 - DEBUG - Pending tasks: 2
+2024-09-08 20:09:10,201 - INFO - [pid 31444] Worker Worker(salt=1551641386, workers=1, host=LAPTOP-038LGA7P, username=Oscar, pid=31444) running   LoadSalesData()
+2024-09-08 20:09:18,850 - ERROR - [pid 31444] Worker Worker(salt=1551641386, workers=1, host=LAPTOP-038LGA7P, username=Oscar, pid=31444) failed    LoadSalesData()
+Traceback (most recent call last):
+  File "C:\Users\ACER\AppData\Local\Programs\Python\Python311\Lib\site-packages\luigi\worker.py", line 210, in run
+    new_deps = self._run_get_new_deps()
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ACER\AppData\Local\Programs\Python\Python311\Lib\site-packages\luigi\worker.py", line 138, in _run_get_new_deps
+    task_gen = self.task.run()
+               ^^^^^^^^^^^^^^^
+  File "h:\My Drive\pacmann\Intro to DE\ETL-pipeline\etl_luigi.py", line 146, in run
+    sales_df_transformed.to_csv(self.output().path, index = False)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'to_csv'
+2024-09-08 20:09:18,882 - DEBUG - 1 running tasks, waiting for next task to finish
+2024-09-08 20:09:18,887 - INFO - Informed scheduler that task   LoadSalesData__99914b932b   has status   FAILED
+2024-09-08 20:09:18,887 - DEBUG - Asking scheduler for work...
+2024-09-08 20:09:18,889 - DEBUG - Pending tasks: 2
+2024-09-08 20:09:18,890 - INFO - [pid 31444] Worker Worker(salt=1551641386, workers=1, host=LAPTOP-038LGA7P, username=Oscar, pid=31444) running   LoadScrapingData()
+2024-09-08 20:09:19,244 - INFO - [pid 31444] Worker Worker(salt=1551641386, workers=1, host=LAPTOP-038LGA7P, username=Oscar, pid=31444) done      LoadScrapingData()
+2024-09-08 20:09:19,245 - DEBUG - 1 running tasks, waiting for next task to finish
+2024-09-08 20:09:19,247 - INFO - Informed scheduler that task   LoadScrapingData__99914b932b   has status   DONE
+2024-09-08 20:09:19,248 - DEBUG - Asking scheduler for work...
+2024-09-08 20:09:19,249 - DEBUG - Done
+2024-09-08 20:09:19,250 - DEBUG - There are no more tasks to run at this time
+2024-09-08 20:09:19,251 - DEBUG - There are 1 pending tasks possibly being run by other workers
+2024-09-08 20:09:19,252 - DEBUG - There are 1 pending tasks unique to this worker
+2024-09-08 20:09:19,254 - DEBUG - There are 1 pending tasks last scheduled by this worker
+2024-09-08 20:09:19,255 - INFO - Worker Worker(salt=1551641386, workers=1, host=LAPTOP-038LGA7P, username=Oscar, pid=31444) was stopped. Shutting down Keep-Alive thread
+2024-09-08 20:09:19,257 - INFO - 
+===== Luigi Execution Summary =====
+
+Scheduled 9 tasks of which:
+* 5 complete ones were encountered:
+    - 1 ExtractMarketingData()
+    - 1 ExtractSalesData()
+    - 1 LoadMarketingData()
+    - 1 TransformMarketingData()
+    - 1 TransformSalesData()
+* 3 ran successfully:
+    - 1 ExtractScrapingData()
+    - 1 LoadScrapingData()
+    - 1 TransformScrapingData()
+* 1 failed:
+    - 1 LoadSalesData()
+
+This progress looks :( because there were failed tasks
+
+===== Luigi Execution Summary =====
+
+2024-09-08 20:22:52,986 - INFO - [pid 5016] Worker Worker(salt=9165367337, workers=1, host=LAPTOP-038LGA7P, username=Oscar, pid=5016) done      ExtractScrapingData()
+2024-09-08 20:22:52,993 - DEBUG - 1 running tasks, waiting for next task to finish
+2024-09-08 20:22:52,994 - INFO - Informed scheduler that task   ExtractScrapingData__99914b932b   has status   DONE
+2024-09-08 20:22:52,995 - DEBUG - Asking scheduler for work...
+2024-09-08 20:22:52,996 - DEBUG - Pending tasks: 6
+2024-09-08 20:22:52,997 - INFO - [pid 5016] Worker Worker(salt=9165367337, workers=1, host=LAPTOP-038LGA7P, username=Oscar, pid=5016) running   TransformSalesData()
+2024-09-08 20:22:54,812 - INFO - [pid 5016] Worker Worker(salt=9165367337, workers=1, host=LAPTOP-038LGA7P, username=Oscar, pid=5016) done      TransformSalesData()
+2024-09-08 20:22:54,813 - DEBUG - 1 running tasks, waiting for next task to finish
+2024-09-08 20:22:54,814 - INFO - Informed scheduler that task   TransformSalesData__99914b932b   has status   DONE
+2024-09-08 20:22:54,814 - DEBUG - Asking scheduler for work...
+2024-09-08 20:22:54,815 - DEBUG - Pending tasks: 5
+2024-09-08 20:22:54,815 - INFO - [pid 5016] Worker Worker(salt=9165367337, workers=1, host=LAPTOP-038LGA7P, username=Oscar, pid=5016) running   TransformMarketingData()
+2024-09-08 20:22:57,608 - INFO - [pid 5016] Worker Worker(salt=9165367337, workers=1, host=LAPTOP-038LGA7P, username=Oscar, pid=5016) done      TransformMarketingData()
+2024-09-08 20:22:57,609 - DEBUG - 1 running tasks, waiting for next task to finish
+2024-09-08 20:22:57,609 - INFO - Informed scheduler that task   TransformMarketingData__99914b932b   has status   DONE
+2024-09-08 20:22:57,611 - DEBUG - Asking scheduler for work...
+2024-09-08 20:22:57,611 - DEBUG - Pending tasks: 4
+2024-09-08 20:22:57,611 - INFO - [pid 5016] Worker Worker(salt=9165367337, workers=1, host=LAPTOP-038LGA7P, username=Oscar, pid=5016) running   TransformScrapingData()
+2024-09-08 20:22:57,715 - INFO - [pid 5016] Worker Worker(salt=9165367337, workers=1, host=LAPTOP-038LGA7P, username=Oscar, pid=5016) done      TransformScrapingData()
+2024-09-08 20:22:57,715 - DEBUG - 1 running tasks, waiting for next task to finish
+2024-09-08 20:22:57,716 - INFO - Informed scheduler that task   TransformScrapingData__99914b932b   has status   DONE
+2024-09-08 20:22:57,717 - DEBUG - Asking scheduler for work...
+2024-09-08 20:22:57,718 - DEBUG - Pending tasks: 3
+2024-09-08 20:22:57,718 - INFO - [pid 5016] Worker Worker(salt=9165367337, workers=1, host=LAPTOP-038LGA7P, username=Oscar, pid=5016) running   LoadSalesData()
+2024-09-08 20:23:04,922 - ERROR - [pid 5016] Worker Worker(salt=9165367337, workers=1, host=LAPTOP-038LGA7P, username=Oscar, pid=5016) failed    LoadSalesData()
+Traceback (most recent call last):
+  File "C:\Users\ACER\AppData\Local\Programs\Python\Python311\Lib\site-packages\luigi\worker.py", line 210, in run
+    new_deps = self._run_get_new_deps()
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ACER\AppData\Local\Programs\Python\Python311\Lib\site-packages\luigi\worker.py", line 138, in _run_get_new_deps
+    task_gen = self.task.run()
+               ^^^^^^^^^^^^^^^
+  File "h:\My Drive\pacmann\Intro to DE\ETL-pipeline\etl_luigi.py", line 146, in run
+    sales_df_transformed.to_csv(self.output().path, index = False)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'to_csv'
+2024-09-08 20:23:04,951 - DEBUG - 1 running tasks, waiting for next task to finish
+2024-09-08 20:23:04,956 - INFO - Informed scheduler that task   LoadSalesData__99914b932b   has status   FAILED
+2024-09-08 20:23:04,958 - DEBUG - Asking scheduler for work...
+2024-09-08 20:23:04,959 - DEBUG - Pending tasks: 3
+2024-09-08 20:23:04,960 - INFO - [pid 5016] Worker Worker(salt=9165367337, workers=1, host=LAPTOP-038LGA7P, username=Oscar, pid=5016) running   LoadMarketingData()
+2024-09-08 20:23:06,449 - ERROR - [pid 5016] Worker Worker(salt=9165367337, workers=1, host=LAPTOP-038LGA7P, username=Oscar, pid=5016) failed    LoadMarketingData()
+Traceback (most recent call last):
+  File "C:\Users\ACER\AppData\Local\Programs\Python\Python311\Lib\site-packages\sqlalchemy\engine\base.py", line 2118, in _exec_insertmany_context
+    dialect.do_execute(
+  File "C:\Users\ACER\AppData\Local\Programs\Python\Python311\Lib\site-packages\sqlalchemy\engine\default.py", line 941, in do_execute
+    cursor.execute(statement, parameters)
+psycopg2.errors.UndefinedColumn: column "prices.amountMax" of relation "marketing" does not exist
+LINE 1: INSERT INTO marketing (id, "prices.amountMax", "prices.amoun...
+                                   ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\ACER\AppData\Local\Programs\Python\Python311\Lib\site-packages\luigi\worker.py", line 210, in run
+    new_deps = self._run_get_new_deps()
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ACER\AppData\Local\Programs\Python\Python311\Lib\site-packages\luigi\worker.py", line 138, in _run_get_new_deps
+    task_gen = self.task.run()
+               ^^^^^^^^^^^^^^^
+  File "h:\My Drive\pacmann\Intro to DE\ETL-pipeline\etl_luigi.py", line 161, in run
+    load_marketing_data(marketing_df_transformed)
+  File "h:\My Drive\pacmann\Intro to DE\ETL-pipeline\src\load\load_data.py", line 16, in load_marketing_data
+    df_marketing_clean.to_sql(name = dw_table_marketing,
+  File "C:\Users\ACER\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\util\_decorators.py", line 333, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ACER\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\generic.py", line 3087, in to_sql
+    return sql.to_sql(
+           ^^^^^^^^^^^
+  File "C:\Users\ACER\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\io\sql.py", line 842, in to_sql
+    return pandas_sql.to_sql(
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ACER\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\io\sql.py", line 2018, in to_sql
+    total_inserted = sql_engine.insert_records(
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ACER\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\io\sql.py", line 1567, in insert_records
+    raise err
+  File "C:\Users\ACER\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\io\sql.py", line 1558, in insert_records
+    return table.insert(chunksize=chunksize, method=method)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ACER\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\io\sql.py", line 1119, in insert
+    num_inserted = exec_insert(conn, keys, chunk_iter)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ACER\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\io\sql.py", line 1010, in _execute_insert
+    result = conn.execute(self.table.insert(), data)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ACER\AppData\Local\Programs\Python\Python311\Lib\site-packages\sqlalchemy\engine\base.py", line 1418, in execute
+    return meth(
+           ^^^^^
+  File "C:\Users\ACER\AppData\Local\Programs\Python\Python311\Lib\site-packages\sqlalchemy\sql\elements.py", line 515, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ACER\AppData\Local\Programs\Python\Python311\Lib\site-packages\sqlalchemy\engine\base.py", line 1640, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ACER\AppData\Local\Programs\Python\Python311\Lib\site-packages\sqlalchemy\engine\base.py", line 1844, in _execute_context
+    return self._exec_insertmany_context(dialect, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ACER\AppData\Local\Programs\Python\Python311\Lib\site-packages\sqlalchemy\engine\base.py", line 2126, in _exec_insertmany_context
+    self._handle_dbapi_exception(
+  File "C:\Users\ACER\AppData\Local\Programs\Python\Python311\Lib\site-packages\sqlalchemy\engine\base.py", line 2355, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "C:\Users\ACER\AppData\Local\Programs\Python\Python311\Lib\site-packages\sqlalchemy\engine\base.py", line 2118, in _exec_insertmany_context
+    dialect.do_execute(
+  File "C:\Users\ACER\AppData\Local\Programs\Python\Python311\Lib\site-packages\sqlalchemy\engine\default.py", line 941, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.ProgrammingError: (psycopg2.errors.UndefinedColumn) column "prices.amountMax" of relation "marketing" does not exist
+LINE 1: INSERT INTO marketing (id, "prices.amountMax", "prices.amoun...
+                                   ^
+
+[SQL: INSERT INTO marketing (id, "prices.amountMax", "prices.amountMin", "prices.availability", "prices.condition", "prices.currency", "prices.dateSeen", "prices.isSale", "prices.merchant", "prices.shipping", "prices.sourceURLs", asins, brand, categories,  ... 564302 characters truncated ... name__999)s, %(primaryCategories__999)s, %(sourceURLs__999)s, %(upc__999)s, %(weightInPounds__999)s)]
+[parameters: {'prices_currency__0': 'USD', 'asins__0': 'B00C78VIUE', 'keys__0': 'sanusvlf410b110inchsuperslimfullmotionmountfor3784inchestvs/savlf410b1,sanusvlf410b110inchsuperslimfullmotionmountfor3784inchestvs/b00c78viue,sanusvlf410b110inchsuperslimfullmotionmountfor3784inchestvs/5689019,sanus/vlf410b1,793795525420', 'prices_shipping__0': 0, 'name__0': "Sanus VLF410B1 10-Inch Super Slim Full-Motion Mount for 37 - 84 Inches TV's", 'dateUpdated__0': '2018-05-12 18:59:48+00:00', 'categories__0': 'Audio & Video Accessories,TV Mounts,TV Accessories & Parts,Electronics,A/V Presentation,Accessories & Supplies,TV Ceiling & Wall Mounts', 'prices_amountMin__0': 104.99, 'sourceURLs__0': 'https://www.amazon.com/Sanus-VLF410B1-10-Inch-Super-Full-Motion/dp/B00C78VIUE/,https://www.amazon.com/product-reviews/B00C78VIUE/,http://reviews.best ... (1035 characters truncated) ... -Full-Motion/dp/B00C78VIUE,http://www.bestbuy.com/site/sanus-tv-wall-mount-for-most-37-84-flat-panel-tvs-extends-10-3-8-black/5689019.p?skuId=5689019', 'upc__0': '7.94E+11', 'id__0': 'AVphzgbJLJeJML43fA0o', 'manufacturer__0': 'No Information', 'manufacturerNumber__0': 'VLF410B1', 'prices_condition__0': 'NEW', 'prices_sourceURLs__0': 'http://www.bestbuy.com/site/sanus-tv-wall-mount-for-most-37-84-flat-panel-tvs-extends-10-3-8-black/5689019.p?skuId=5689019', 'dateAdded__0': '2015-04-13 12:00:51+00:00', 'prices_dateSeen__0': '2017-03-30T06:00:00Z,2017-03-10T22:00:00Z,2017-03-04T10:00:00Z,2017-03-03T14:00:00Z', 'imageURLs__0': 'https://images-na.ssl-images-amazon.com/images/I/71oVh2UO8xL._SL1500_.jpg,http://pisces.bbystatic.com/image2/BestBuy_US/images/products/5689/5689019_ ... (356 characters truncated) ... 10_b1_vlf410_super_slim_full_motion_1368452917000_911749.jpg,http://static.bhphoto.com/images/multiple_images/thumbnails/1368452838000_IMG_316474.jpg', 'weightInPounds__0': 32.8, 'brand__0': 'Sanus', 'prices_merchant__0': 'Bestbuy.com', 'prices_isSale__0': False, 'prices_amountMax__0': 104.99, 'primaryCategories__0': 'Electronics', 'prices_availability__0': 'YES', 'prices_currency__1': 'USD', 'asins__1': 'B018K251JE,B00VILQKQ8', 'keys__1': 'boytone2500w21chhometheatersystemblackdiamond/b018k251je,boytone2500w21chhometheatersystemblackdiamond/4784804,boytone2500w21chhometheatersystemblackdiamond/b00vilqkq8,boytone/bt210f,boytone2500w21chhometheatersystemblackdiamond/554725012,642014746682', 'prices_shipping__1': 0, 'name__1': 'Boytone - 2500W 2.1-Ch. Home Theater System - Black Diamond', 'dateUpdated__1': '2018-06-13 19:39:02+00:00', 'categories__1': 'Stereos,Portable Bluetooth Speakers,TV, Video & Home Audio,Speaker Systems,Portable Audio & Video,Electronics,See more Black BOYTONE Bt-210f 30 Watt  ... (85 characters truncated) ... ics,See more BOYTONE Bt-210f Bluetooth Wireless Speaker Mp3...,Home Theater Systems,MP3 Player Accessories,Home Audio,Audio,Cell,Stereo Shelf Systems', 'prices_amountMin__1': 64.99, 'sourceURLs__1': 'http://reviews.bestbuy.com/3545/4784804/reviews.htm%25253Fformat%25253Dembedded%252526page%25253D2,http://reviews.bestbuy.com/3545/4784804/reviews.ht ... (2978 characters truncated) ... 3545/4784804/reviews.htm%2525253Fformat%2525253Dembedded%25252526page%2525253D3,https://www.walmart.com/ip/Boytone-BT-210F-Bluetooth-Speaker/47368142', 'upc__1': '6.42E+11', 'id__1': 'AVpgMuGwLJeJML43KY_c', 'manufacturer__1': 'Boytone', 'manufacturerNumber__1': 'BT-210F', 'prices_condition__1': 'NEW', 'prices_sourceURLs__1': 'https://www.walmart.com/ip/BOYTONE-BT210FB-BLACK-2-1-MULTIMEDIA-SPEAKER-SYSTEM-WITH/47368142', 'dateAdded__1': '2015-05-18 14:14:56+00:00', 'prices_dateSeen__1': '2017-12-14T06:00:00Z', 'imageURLs__1': 'https://images-na.ssl-images-amazon.com/images/I/61Kics6Lb6L._SL1000_.jpg,https://images-na.ssl-images-amazon.com/images/I/711eiviQlrL._SL1000_.jpg,h ... (3013 characters truncated) ... es/I/310imryhfxL._SS40_.jpg,http://ecx.images-amazon.com/images/I/51xVLqpEVML._SS40_.jpg,http://ecx.images-amazon.com/images/I/41hUH7AbcNL._SS40_.jpg', 'weightInPounds__1': 14.0, 'brand__1': 'Boytone', 'prices_merchant__1': 'Walmart.com', 'prices_isSale__1': True, 'prices_amountMax__1': 69.0, 'primaryCategories__1': 'Electronics', 'prices_availability__1': 'YES' ... 24900 parameters truncated ... 'prices_currency__998': 'USD', 'asins__998': 'B072HRPC28', 'keys__998': 'lg75class4k2160psmartledtv75uj6470/564268864,lg75class4k2160psmartledtv75uj6470/292076906646,lg/75uj6470,lg75classleduj6470series2160psmart4kuhdtvwit ... (429 characters truncated) ... 52543175897,lg75class4k2160psmartledtv75uj6470/b072hrpc28,lg75inches4ksmartledtv75uj64702017/b072hrpc28,lg75class4k2160psmartledtv75uj6470/lg75uj6470', 'prices_shipping__998': 0, 'name__998': 'LG - 75 Class - LED - UJ6470 Series - 2160p - Smart - 4K UHD TV with HDR"', 'dateUpdated__998': '2018-06-13 19:49:54+00:00', 'categories__998': '4K Ultra HD TVs,TV, Video & Home Audio,Frys,Electronics,Televisions,TVs Entertainment,TV & Home Theater,All Flat-Panel TVs,LED & LCD TVs,All TVs,TVs,Consumer Electronics,TV & Video,4K TVs by Brand,Television & Video,4K LG TVs', 'prices_amountMin__998': 2296.99, 'sourceURLs__998': 'http://www.ebay.com/itm/LG-75UJ6470-75-UHD-4K-HDR-Smart-LED-HDTV-2017-Model-/332227452615,http://www.ebay.com/itm/LG-75UJ6470-4K-UHD-HDR-Smart-LED-TV ... (3461 characters truncated) ... -2160p-smart-4k-uhd-tv-with-hdr/5878700.p%25253FskuId%25253D5878700,https://www.bhphotovideo.com/c/product/1325194-REG/lg_75uj6470_75_uhd_4k_hdr.html', 'upc__998': '7.19E+11', 'id__998': 'AVzSv0OV-jtxr-f3yibR', 'manufacturer__998': 'No Information', 'manufacturerNumber__998': '75UJ6470', 'prices_condition__998': 'NEW', 'prices_sourceURLs__998': 'http://www.ebay.com/itm/LG-75-4K-Ultra-HD-HDR-Smart-LED-TV-webOS-3-5-4-x-HDMI-2-x-USB-75UJ6470-/152543175897', 'dateAdded__998': '2017-06-23 02:19:29+00:00', 'prices_dateSeen__998': '2017-06-26T22:00:00Z,2017-06-27T07:00:00Z,2017-06-27T19:00:00Z,2017-06-26T02:00:00Z', 'imageURLs__998': 'http://i.ebayimg.com/images/g/wl8AAOSwGJlZHt9M/s-l300.jpg,https://images-na.ssl-images-amazon.com/images/I/71Wx9j-K0mL._SL1500_.jpg,http://i.ebayimg. ... (8564 characters truncated) ... OSwX9FZGvlL/s-l96.jpg,http://i.ebayimg.com/thumbs/images/g/1EkAAOSwn5ZZcmrK/s-l96.jpg,http://i.ebayimg.com/thumbs/images/g/AcoAAOSwWdZZY8gx/s-l96.jpg', 'weightInPounds__998': 92.6, 'brand__998': 'LG', 'prices_merchant__998': 'electronic_express', 'prices_isSale__998': False, 'prices_amountMax__998': 2296.99, 'primaryCategories__998': 'Electronics', 'prices_availability__998': 'YES', 'prices_currency__999': 'USD', 'asins__999': 'B072HRPC28', 'keys__999': 'lg75class4k2160psmartledtv75uj6470/564268864,lg75class4k2160psmartledtv75uj6470/292076906646,lg/75uj6470,lg75classleduj6470series2160psmart4kuhdtvwit ... (429 characters truncated) ... 52543175897,lg75class4k2160psmartledtv75uj6470/b072hrpc28,lg75inches4ksmartledtv75uj64702017/b072hrpc28,lg75class4k2160psmartledtv75uj6470/lg75uj6470', 'prices_shipping__999': 0, 'name__999': 'LG - 75 Class - LED - UJ6470 Series - 2160p - Smart - 4K UHD TV with HDR"', 'dateUpdated__999': '2018-06-13 19:49:54+00:00', 'categories__999': '4K Ultra HD TVs,TV, Video & Home Audio,Frys,Electronics,Televisions,TVs Entertainment,TV & Home Theater,All Flat-Panel TVs,LED & LCD TVs,All TVs,TVs,Consumer Electronics,TV & Video,4K TVs by Brand,Television & Video,4K LG TVs', 'prices_amountMin__999': 2299.99, 'sourceURLs__999': 'http://www.ebay.com/itm/LG-75UJ6470-75-UHD-4K-HDR-Smart-LED-HDTV-2017-Model-/332227452615,http://www.ebay.com/itm/LG-75UJ6470-4K-UHD-HDR-Smart-LED-TV ... (3461 characters truncated) ... -2160p-smart-4k-uhd-tv-with-hdr/5878700.p%25253FskuId%25253D5878700,https://www.bhphotovideo.com/c/product/1325194-REG/lg_75uj6470_75_uhd_4k_hdr.html', 'upc__999': '7.19E+11', 'id__999': 'AVzSv0OV-jtxr-f3yibR', 'manufacturer__999': 'No Information', 'manufacturerNumber__999': '75UJ6470', 'prices_condition__999': 'NEW', 'prices_sourceURLs__999': 'http://www.bestbuy.com/site/lg-75-class-74-5-diag--led-2160p-smart-4k-ultra-hd-tv-gray/5878700.p%25253FskuId%25253D5878700', 'dateAdded__999': '2017-06-23 02:19:29+00:00', 'prices_dateSeen__999': '2017-06-29T22:00:00Z', 'imageURLs__999': 'http://i.ebayimg.com/images/g/wl8AAOSwGJlZHt9M/s-l300.jpg,https://images-na.ssl-images-amazon.com/images/I/71Wx9j-K0mL._SL1500_.jpg,http://i.ebayimg. ... (8564 characters truncated) ... OSwX9FZGvlL/s-l96.jpg,http://i.ebayimg.com/thumbs/images/g/1EkAAOSwn5ZZcmrK/s-l96.jpg,http://i.ebayimg.com/thumbs/images/g/AcoAAOSwWdZZY8gx/s-l96.jpg', 'weightInPounds__999': 92.6, 'brand__999': 'LG', 'prices_merchant__999': 'Bestbuy.com', 'prices_isSale__999': False, 'prices_amountMax__999': 2299.99, 'primaryCategories__999': 'Electronics', 'prices_availability__999': 'YES'}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2024-09-08 20:23:06,555 - DEBUG - 1 running tasks, waiting for next task to finish
+2024-09-08 20:23:06,558 - INFO - Informed scheduler that task   LoadMarketingData__99914b932b   has status   FAILED
+2024-09-08 20:23:06,560 - DEBUG - Asking scheduler for work...
+2024-09-08 20:23:06,561 - DEBUG - Pending tasks: 3
+2024-09-08 20:23:06,563 - INFO - [pid 5016] Worker Worker(salt=9165367337, workers=1, host=LAPTOP-038LGA7P, username=Oscar, pid=5016) running   LoadScrapingData()
+2024-09-08 20:23:06,738 - ERROR - [pid 5016] Worker Worker(salt=9165367337, workers=1, host=LAPTOP-038LGA7P, username=Oscar, pid=5016) failed    LoadScrapingData()
+Traceback (most recent call last):
+  File "C:\Users\ACER\AppData\Local\Programs\Python\Python311\Lib\site-packages\sqlalchemy\engine\base.py", line 2118, in _exec_insertmany_context
+    dialect.do_execute(
+  File "C:\Users\ACER\AppData\Local\Programs\Python\Python311\Lib\site-packages\sqlalchemy\engine\default.py", line 941, in do_execute
+    cursor.execute(statement, parameters)
+psycopg2.errors.InvalidDatetimeFormat: invalid input syntax for type timestamp: "Regional"
+LINE 1: ...li Tanah, Tawarkan 1 Kaveling ke Banyak Pembeli', 'Regional'...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\ACER\AppData\Local\Programs\Python\Python311\Lib\site-packages\luigi\worker.py", line 210, in run
+    new_deps = self._run_get_new_deps()
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ACER\AppData\Local\Programs\Python\Python311\Lib\site-packages\luigi\worker.py", line 138, in _run_get_new_deps
+    task_gen = self.task.run()
+               ^^^^^^^^^^^^^^^
+  File "h:\My Drive\pacmann\Intro to DE\ETL-pipeline\etl_luigi.py", line 179, in run
+    load_scraping_data(scraping_df_transformed)
+  File "h:\My Drive\pacmann\Intro to DE\ETL-pipeline\src\load\load_data.py", line 23, in load_scraping_data
+    df_scraping_clean.to_sql(name = dw_table_scraping,
+  File "C:\Users\ACER\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\util\_decorators.py", line 333, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ACER\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\generic.py", line 3087, in to_sql
+    return sql.to_sql(
+           ^^^^^^^^^^^
+  File "C:\Users\ACER\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\io\sql.py", line 842, in to_sql
+    return pandas_sql.to_sql(
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ACER\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\io\sql.py", line 2018, in to_sql
+    total_inserted = sql_engine.insert_records(
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ACER\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\io\sql.py", line 1567, in insert_records
+    raise err
+  File "C:\Users\ACER\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\io\sql.py", line 1558, in insert_records
+    return table.insert(chunksize=chunksize, method=method)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ACER\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\io\sql.py", line 1119, in insert
+    num_inserted = exec_insert(conn, keys, chunk_iter)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ACER\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\io\sql.py", line 1010, in _execute_insert
+    result = conn.execute(self.table.insert(), data)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ACER\AppData\Local\Programs\Python\Python311\Lib\site-packages\sqlalchemy\engine\base.py", line 1418, in execute
+    return meth(
+           ^^^^^
+  File "C:\Users\ACER\AppData\Local\Programs\Python\Python311\Lib\site-packages\sqlalchemy\sql\elements.py", line 515, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ACER\AppData\Local\Programs\Python\Python311\Lib\site-packages\sqlalchemy\engine\base.py", line 1640, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ACER\AppData\Local\Programs\Python\Python311\Lib\site-packages\sqlalchemy\engine\base.py", line 1844, in _execute_context
+    return self._exec_insertmany_context(dialect, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ACER\AppData\Local\Programs\Python\Python311\Lib\site-packages\sqlalchemy\engine\base.py", line 2126, in _exec_insertmany_context
+    self._handle_dbapi_exception(
+  File "C:\Users\ACER\AppData\Local\Programs\Python\Python311\Lib\site-packages\sqlalchemy\engine\base.py", line 2355, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "C:\Users\ACER\AppData\Local\Programs\Python\Python311\Lib\site-packages\sqlalchemy\engine\base.py", line 2118, in _exec_insertmany_context
+    dialect.do_execute(
+  File "C:\Users\ACER\AppData\Local\Programs\Python\Python311\Lib\site-packages\sqlalchemy\engine\default.py", line 941, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.DataError: (psycopg2.errors.InvalidDatetimeFormat) invalid input syntax for type timestamp: "Regional"
+LINE 1: ...li Tanah, Tawarkan 1 Kaveling ke Banyak Pembeli', 'Regional'...
+                                                             ^
+
+[SQL: INSERT INTO scraping (judul, topik, sub_topik, topik_pilihan, tanggal_waktu_publish, redaksi, advetorial, isi_berita, link) VALUES (%(judul__0)s, %(topik__0)s, %(sub_topik__0)s, %(topik_pilihan__0)s, %(tanggal_waktu_publish__0)s, %(redaksi__0)s, %(ad ... 85554 characters truncated ... gal_waktu_publish__468)s, %(redaksi__468)s, %(advetorial__468)s, %(isi_berita__468)s, %(link__468)s)]
+[parameters: {'tanggal_waktu_publish__0': '2024-09-06 16:46:00', 'judul__0': 'Dosen di Solo Terjerat Kasus Penipuan Jual Beli Tanah, Tawarkan 1 Kaveling ke Banyak Pembeli', 'topik__0': 'Regional', 'redaksi__0': 'Rachmawati', 'advetorial__0': 'Non Advertorial', 'sub_topik__0': 'Belum ditentukan', 'isi_berita__0': 'KOMPAS.com - H, salah satu dosen di Solo, Jawa Tengah ditangkap Polres Karangayar atas kasus dugaan penipuan jual beli tanah. Awalnya ia diamankan ol ... (2889 characters truncated) ... arik, korban langsung dibawa pelaku ke Notaris untuk penandatanganan Akta Jual Beli. Dengan bujuk rayu pelaku, korban langsung membayar secara tunai.', 'link__0': 'https://regional.kompas.com/read/2024/09/06/164600878/dosen-di-solo-terjerat-kasus-penipuan-jual-beli-tanah-tawarkan-1-kaveling', 'topik_pilihan__0': 'Bukan topik pilihan', 'tanggal_waktu_publish__1': '2024-09-06 16:44:00', 'judul__1': 'Indonesia-Africa Forum Sepakati Kerja Sama Bisnis Rp 53,9 Triliun', 'topik__1': 'Money', 'redaksi__1': 'Yohana Artha Uly, Sakina Rakhma Diah Setiawan', 'advetorial__1': 'Non Advertorial', 'sub_topik__1': 'Ekbis', 'isi_berita__1': 'JAKARTA, KOMPAS.com - Pertemuan Indonesia-Africa Forum (IAF) ke-2 2024 mencatatkan 32 kerja sama bisnis dengan total nilai mencapai 3,5 miliar dollar ... (1487 characters truncated) ... rkuat kerja sama ekonomi dan bisnis antara Indonesia dan Afrika, yang sekaligus membuka peluang baru untuk pertumbuhan dan kemajuan di kedua wilayah.', 'link__1': 'https://money.kompas.com/read/2024/09/06/164456726/indonesia-africa-forum-sepakati-kerja-sama-bisnis-rp-539-triliun', 'topik_pilihan__1': 'Bukan topik pilihan', 'tanggal_waktu_publish__2': '2024-09-06 16:43:00', 'judul__2': 'Kronologi Suami Bunuh Istri Usai Cekcok di Kontrakan Pasar Minggu', 'topik__2': 'News', 'redaksi__2': 'Achmad Nasrudin Yahya, Irfan Maullana', 'advetorial__2': 'Non Advertorial', 'sub_topik__2': 'Megapolitan', 'isi_berita__2': 'JAKARTA, KOMPAS.com - Polres Metro Jakarta Selatan menangkap Achmad Syarifudin (30), pelaku pembunuhan istrinya, FF (26), di sebuah kontrakan di Jala ... (1939 characters truncated) ...  dengan ancaman hukuman maksimal 15 tahun penjara. Baca juga: Dipicu Kehadiran Pria Idaman Lain, Suami Bunuh Istrinya di Rumah Kontrakan Pasar Minggu', 'link__2': 'https://megapolitan.kompas.com/read/2024/09/06/16431121/kronologi-suami-bunuh-istri-usai-cekcok-di-kontrakan-pasar-minggu', 'topik_pilihan__2': 'Bukan topik pilihan', 'tanggal_waktu_publish__3': '2024-09-06 16:41:00', 'judul__3': 'Simak Perbedaan Tiga Tipe Toyota New Fortuner', 'topik__3': 'Otomotif', 'redaksi__3': 'Aprida Mega Nanda, Azwar Ferdian', 'advetorial__3': 'Non Advertorial', 'sub_topik__3': 'Mobil', 'isi_berita__3': 'JAKARTA, KOMPAS.com - PT Toyota Astra Motor (TAM) baru saja meluncurkan New Fortuner pada Jumat (6/9/2024). Generasi anyar dari Fortuner ini mendapat ... (2148 characters truncated) ...  Menimpa Pengendara Motor New Fortuner dibanderol mulai Rp 614.000.000 untuk tipe 2.7 SRZ, hingga Rp 761.700.000 untuk tipe tertinggi yakni 2.8 GR-S.', 'link__3': 'https://otomotif.kompas.com/read/2024/09/06/164141315/simak-perbedaan-tiga-tipe-toyota-new-fortuner', 'topik_pilihan__3': 'Bukan topik pilihan', 'tanggal_waktu_publish__4': '2024-09-06 16:41:00', 'judul__4': 'Penjualan Drop, VW Akan Tutup 2 Pabrik buat Selamatkan Keuangan', 'topik__4': 'Otomotif', 'redaksi__4': 'Gilang Satria, Azwar Ferdian', 'advetorial__4': 'Non Advertorial', 'sub_topik__4': 'News', 'isi_berita__4': 'JAKARTA, KOMPAS.com - Volkswagen, merek mobil asal Jerman sedang memasuki tahap krisis. Merek yang biasa disingkat jadi VW itu mengatakan penjualan d ... (2058 characters truncated) ... ya. "Bersama-sama, kami akan menerapkan langkah-langkah yang tepat untuk menjadi lebih menguntungkan. Itu adalah tanggung jawab kita semua," katanya.', 'link__4': 'https://otomotif.kompas.com/read/2024/09/06/164100915/penjualan-drop-vw-akan-tutup-2-pabrik-buat-selamatkan-keuangan', 'topik_pilihan__4': 'Bukan topik pilihan', 'tanggal_waktu_publish__5': '2024-09-06 16:40:00', 'judul__5': 'Paus Fransiskus Tinggalkan Indonesia, Warga: "Ciao Papa, Tiamo"', 'topik__5': 'News', 'redaksi__5': 'Shela Octavia, Ambaranie Nadia Kemala Movanita ', 'advetorial__5': 'Non Advertorial' ... 4121 parameters truncated ... 'advetorial__463': 'Non Advertorial', 'sub_topik__463': 'Motor', 'isi_berita__463': 'JAKARTA, KOMPAS.com - Membiarkan bearing roda motor yang rusak atau sudah bergoyang dan berbunyi, akan berdampak pada komponen lain. Apalagi, kompone ... (991 characters truncated) ... ah sokbreaker sampai pelek. Oleh karenanya, ketika ban motor sudah bergoyang dan berbunyi kasar, pemilik perlu melakukan pengecekan ke bengkel resmi.', 'link__463': 'https://otomotif.kompas.com/read/2024/09/08/202100115/dampak-membiarkan-bearing-motor-rusak-merusak-komponen-lain', 'topik_pilihan__463': 'Bukan topik pilihan', 'tanggal_waktu_publish__464': '2024-09-08 20:13:00', 'judul__464': 'Catat Jadwal CPNS 2024 Terbaru, Daftar di sscasn.bkn.go.id', 'topik__464': 'Edu', 'redaksi__464': 'Mahar Prastiwi', 'advetorial__464': 'Non Advertorial', 'sub_topik__464': 'Belum ditentukan', 'isi_berita__464': 'KOMPAS.com - Jadwal CPNS 2024 terbaru (Calon Pegawai Negeri Sipil) perlu diketahui para pelamar. Seperti diketahui bersama, pendaftaran CPNS 2024 dip ... (1860 characters truncated) ...  proses seleksi. 3. Login ke akun SSCASN Setelah berhasil registrasi, login dengan menggunakan NIK dan kata sandi yang sudah dibuat. 4. Pilih formasi', 'link__464': 'https://www.kompas.com/edu/read/2024/09/08/201347071/catat-jadwal-cpns-2024-terbaru-daftar-di-sscasnbkngoid', 'topik_pilihan__464': 'Bukan topik pilihan', 'tanggal_waktu_publish__465': '2024-09-08 20:13:00', 'judul__465': 'Penjelasan OJK soal Rencana Pemotongan Gaji Pekerja untuk Dana Pensiun', 'topik__465': 'Money', 'redaksi__465': 'Elsa Catriana, Erlangga Djumena', 'advetorial__465': 'Non Advertorial', 'sub_topik__465': 'Keuangan', 'isi_berita__465': 'JAKARTA, KOMPAS.com - Kepala Eksekutif Pengawas Perasuransian, Penjaminan, dan Dana Pensiun Otoritas Jasa Keuangan (OJK) Ogi Prastomiyono menjelaskan ... (2786 characters truncated) ... rkait dengan kontrak asuransi dan distribusi untuk asuransi," pungkasnya. Baca juga: OJK Proyeksikan Dana Pensiun Berpotensi Capai 20 Persen dari PDB', 'link__465': 'https://money.kompas.com/read/2024/09/08/201308626/penjelasan-ojk-soal-rencana-pemotongan-gaji-pekerja-untuk-dana-pensiun', 'topik_pilihan__465': 'Bukan topik pilihan', 'tanggal_waktu_publish__466': '2024-09-08 20:11:00', 'judul__466': 'Cara Mendapatkan Diskon Tiket Kereta Reduksi bagi Dosen dan Alumni UGM', 'topik__466': 'Money', 'redaksi__466': 'Mela Arnani', 'advetorial__466': 'Non Advertorial', 'sub_topik__466': 'Ekbis', 'isi_berita__466': 'KOMPAS.com -\xa0Civitas akademika dan alumni dari Universitas Gadjah Mada (UGM) Yogyakarta, bisa menikmati tarif reduksi kereta api dengan diskon tik ... (1437 characters truncated) ... arif reduksi diskon tiket kereta api bagi dosen, tenaga pengajar, dan alumni UGM. Baca juga: Simak, Ini Ketentuan Tarif Reduksi Tiket Kereta Api \xa0', 'link__466': 'https://money.kompas.com/read/2024/09/08/201100126/cara-mendapatkan-diskon-tiket-kereta-reduksi-bagi-dosen-dan-alumni-ugm', 'topik_pilihan__466': 'Bukan topik pilihan', 'tanggal_waktu_publish__467': '2024-09-08 20:08:00', 'judul__467': 'Resep Tempe Penyet Sambal Teri, Santap Bersama Petai dan Lalapan', 'topik__467': 'Food', 'redaksi__467': 'Krisda Tiofani, Anggara Wikan Prasetya', 'advetorial__467': 'Non Advertorial', 'sub_topik__467': 'Resep', 'isi_berita__467': 'KOMPAS.com -\xa0Lauk penyetan tidak selalu dibuat dari daging ayam. Kamu juga bisa memanfaatkan tahu maupun tempe goreng untuk membuat penyetan. Misa ... (801 characters truncated) ...  teri goreng, aduk rata. Tekan-tekan tempe dengan penggiling sambal sampai tempe sedikit terkena sambal. Sajikan bersama petai dan daun kemangi. \xa0', 'link__467': 'https://www.kompas.com/food/read/2024/09/08/200800975/resep-tempe-penyet-sambal-teri-santap-bersama-petai-dan-lalapan', 'topik_pilihan__467': 'Bukan topik pilihan', 'tanggal_waktu_publish__468': '2024-09-08 19:44:00', 'judul__468': 'Hasil MotoGP San Marino 2024: Marc Marquez Menang "Back to Back"', 'topik__468': 'Bola', 'redaksi__468': 'Sem Bagaskara', 'advetorial__468': 'Non Advertorial', 'sub_topik__468': 'Motogp', 'isi_berita__468': 'KOMPAS.com - Hasil MotoGP San Marino 2024 memunculkan nama Marc Marquez sebagai pemenang. Marquez pun menang back-to-back usai pekan lalu berjaya di  ... (2167 characters truncated) ... ti diketahu, pekan lalu ia finis pertama di MotoGP Aragon 2024. Inilah kali pertama dalam tiga tahun Marquez berhasil menuai kemenangan back-to-back.', 'link__468': 'https://www.kompas.com/motogp/read/2024/09/08/19443178/hasil-motogp-san-marino-2024-marc-marquez-menang-back-to-back', 'topik_pilihan__468': 'Bukan topik pilihan'}]
+(Background on this error at: https://sqlalche.me/e/20/9h9h)
+2024-09-08 20:23:06,763 - DEBUG - 1 running tasks, waiting for next task to finish
+2024-09-08 20:23:06,766 - INFO - Informed scheduler that task   LoadScrapingData__99914b932b   has status   FAILED
+2024-09-08 20:23:06,768 - DEBUG - Asking scheduler for work...
+2024-09-08 20:23:06,769 - DEBUG - Done
+2024-09-08 20:23:06,770 - DEBUG - There are no more tasks to run at this time
+2024-09-08 20:23:06,771 - DEBUG - There are 3 pending tasks possibly being run by other workers
+2024-09-08 20:23:06,772 - DEBUG - There are 3 pending tasks unique to this worker
+2024-09-08 20:23:06,773 - DEBUG - There are 3 pending tasks last scheduled by this worker
+2024-09-08 20:23:06,774 - INFO - Worker Worker(salt=9165367337, workers=1, host=LAPTOP-038LGA7P, username=Oscar, pid=5016) was stopped. Shutting down Keep-Alive thread
+2024-09-08 20:23:06,777 - INFO - 
+===== Luigi Execution Summary =====
+
+Scheduled 9 tasks of which:
+* 6 ran successfully:
+    - 1 ExtractMarketingData()
+    - 1 ExtractSalesData()
+    - 1 ExtractScrapingData()
+    - 1 TransformMarketingData()
+    - 1 TransformSalesData()
+    ...
+* 3 failed:
+    - 1 LoadMarketingData()
+    - 1 LoadSalesData()
+    - 1 LoadScrapingData()
+
+This progress looks :( because there were failed tasks
+
+===== Luigi Execution Summary =====
+
+2024-09-08 20:39:34,014 - INFO - [pid 19736] Worker Worker(salt=899329199, workers=1, host=LAPTOP-038LGA7P, username=Oscar, pid=19736) done      ExtractScrapingData()
+2024-09-08 20:39:34,019 - DEBUG - 1 running tasks, waiting for next task to finish
+2024-09-08 20:39:34,020 - INFO - Informed scheduler that task   ExtractScrapingData__99914b932b   has status   DONE
+2024-09-08 20:39:34,020 - DEBUG - Asking scheduler for work...
+2024-09-08 20:39:34,022 - DEBUG - Pending tasks: 5
+2024-09-08 20:39:34,022 - INFO - [pid 19736] Worker Worker(salt=899329199, workers=1, host=LAPTOP-038LGA7P, username=Oscar, pid=19736) running   TransformSalesData()
+2024-09-08 20:39:37,619 - INFO - [pid 19736] Worker Worker(salt=899329199, workers=1, host=LAPTOP-038LGA7P, username=Oscar, pid=19736) done      TransformSalesData()
+2024-09-08 20:39:37,620 - DEBUG - 1 running tasks, waiting for next task to finish
+2024-09-08 20:39:37,621 - INFO - Informed scheduler that task   TransformSalesData__99914b932b   has status   DONE
+2024-09-08 20:39:37,622 - DEBUG - Asking scheduler for work...
+2024-09-08 20:39:37,623 - DEBUG - Pending tasks: 4
+2024-09-08 20:39:37,624 - INFO - [pid 19736] Worker Worker(salt=899329199, workers=1, host=LAPTOP-038LGA7P, username=Oscar, pid=19736) running   TransformMarketingData()
+2024-09-08 20:39:42,872 - INFO - [pid 19736] Worker Worker(salt=899329199, workers=1, host=LAPTOP-038LGA7P, username=Oscar, pid=19736) done      TransformMarketingData()
+2024-09-08 20:39:42,874 - DEBUG - 1 running tasks, waiting for next task to finish
+2024-09-08 20:39:42,875 - INFO - Informed scheduler that task   TransformMarketingData__99914b932b   has status   DONE
+2024-09-08 20:39:42,876 - DEBUG - Asking scheduler for work...
+2024-09-08 20:39:42,877 - DEBUG - Pending tasks: 3
+2024-09-08 20:39:42,878 - INFO - [pid 19736] Worker Worker(salt=899329199, workers=1, host=LAPTOP-038LGA7P, username=Oscar, pid=19736) running   TransformScrapingData()
+2024-09-08 20:39:43,112 - INFO - [pid 19736] Worker Worker(salt=899329199, workers=1, host=LAPTOP-038LGA7P, username=Oscar, pid=19736) done      TransformScrapingData()
+2024-09-08 20:39:43,114 - DEBUG - 1 running tasks, waiting for next task to finish
+2024-09-08 20:39:43,115 - INFO - Informed scheduler that task   TransformScrapingData__99914b932b   has status   DONE
+2024-09-08 20:39:43,116 - DEBUG - Asking scheduler for work...
+2024-09-08 20:39:43,117 - DEBUG - Pending tasks: 2
+2024-09-08 20:39:43,118 - INFO - [pid 19736] Worker Worker(salt=899329199, workers=1, host=LAPTOP-038LGA7P, username=Oscar, pid=19736) running   LoadSalesData()
+2024-09-08 20:39:54,979 - INFO - [pid 19736] Worker Worker(salt=899329199, workers=1, host=LAPTOP-038LGA7P, username=Oscar, pid=19736) done      LoadSalesData()
+2024-09-08 20:39:54,981 - DEBUG - 1 running tasks, waiting for next task to finish
+2024-09-08 20:39:54,983 - INFO - Informed scheduler that task   LoadSalesData__99914b932b   has status   DONE
+2024-09-08 20:39:54,984 - DEBUG - Asking scheduler for work...
+2024-09-08 20:39:54,986 - DEBUG - Pending tasks: 1
+2024-09-08 20:39:54,988 - INFO - [pid 19736] Worker Worker(salt=899329199, workers=1, host=LAPTOP-038LGA7P, username=Oscar, pid=19736) running   LoadMarketingData()
+2024-09-08 20:39:57,186 - ERROR - [pid 19736] Worker Worker(salt=899329199, workers=1, host=LAPTOP-038LGA7P, username=Oscar, pid=19736) failed    LoadMarketingData()
+Traceback (most recent call last):
+  File "C:\Users\ACER\AppData\Local\Programs\Python\Python311\Lib\site-packages\sqlalchemy\engine\base.py", line 2118, in _exec_insertmany_context
+    dialect.do_execute(
+  File "C:\Users\ACER\AppData\Local\Programs\Python\Python311\Lib\site-packages\sqlalchemy\engine\default.py", line 941, in do_execute
+    cursor.execute(statement, parameters)
+psycopg2.errors.UndefinedColumn: column "prices.amountMax" of relation "marketing" does not exist
+LINE 1: INSERT INTO marketing (id, "prices.amountMax", "prices.amoun...
+                                   ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\ACER\AppData\Local\Programs\Python\Python311\Lib\site-packages\luigi\worker.py", line 210, in run
+    new_deps = self._run_get_new_deps()
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ACER\AppData\Local\Programs\Python\Python311\Lib\site-packages\luigi\worker.py", line 138, in _run_get_new_deps
+    task_gen = self.task.run()
+               ^^^^^^^^^^^^^^^
+  File "h:\My Drive\pacmann\Intro to DE\ETL-pipeline\etl_luigi.py", line 161, in run
+    load_marketing_data(marketing_df_transformed)
+  File "h:\My Drive\pacmann\Intro to DE\ETL-pipeline\src\load\load_data.py", line 16, in load_marketing_data
+    df_marketing_clean.to_sql(name = dw_table_marketing,
+  File "C:\Users\ACER\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\util\_decorators.py", line 333, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ACER\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\generic.py", line 3087, in to_sql
+    return sql.to_sql(
+           ^^^^^^^^^^^
+  File "C:\Users\ACER\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\io\sql.py", line 842, in to_sql
+    return pandas_sql.to_sql(
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ACER\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\io\sql.py", line 2018, in to_sql
+    total_inserted = sql_engine.insert_records(
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ACER\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\io\sql.py", line 1567, in insert_records
+    raise err
+  File "C:\Users\ACER\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\io\sql.py", line 1558, in insert_records
+    return table.insert(chunksize=chunksize, method=method)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ACER\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\io\sql.py", line 1119, in insert
+    num_inserted = exec_insert(conn, keys, chunk_iter)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ACER\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\io\sql.py", line 1010, in _execute_insert
+    result = conn.execute(self.table.insert(), data)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ACER\AppData\Local\Programs\Python\Python311\Lib\site-packages\sqlalchemy\engine\base.py", line 1418, in execute
+    return meth(
+           ^^^^^
+  File "C:\Users\ACER\AppData\Local\Programs\Python\Python311\Lib\site-packages\sqlalchemy\sql\elements.py", line 515, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ACER\AppData\Local\Programs\Python\Python311\Lib\site-packages\sqlalchemy\engine\base.py", line 1640, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ACER\AppData\Local\Programs\Python\Python311\Lib\site-packages\sqlalchemy\engine\base.py", line 1844, in _execute_context
+    return self._exec_insertmany_context(dialect, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ACER\AppData\Local\Programs\Python\Python311\Lib\site-packages\sqlalchemy\engine\base.py", line 2126, in _exec_insertmany_context
+    self._handle_dbapi_exception(
+  File "C:\Users\ACER\AppData\Local\Programs\Python\Python311\Lib\site-packages\sqlalchemy\engine\base.py", line 2355, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "C:\Users\ACER\AppData\Local\Programs\Python\Python311\Lib\site-packages\sqlalchemy\engine\base.py", line 2118, in _exec_insertmany_context
+    dialect.do_execute(
+  File "C:\Users\ACER\AppData\Local\Programs\Python\Python311\Lib\site-packages\sqlalchemy\engine\default.py", line 941, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.ProgrammingError: (psycopg2.errors.UndefinedColumn) column "prices.amountMax" of relation "marketing" does not exist
+LINE 1: INSERT INTO marketing (id, "prices.amountMax", "prices.amoun...
+                                   ^
+
+[SQL: INSERT INTO marketing (id, "prices.amountMax", "prices.amountMin", "prices.availability", "prices.condition", "prices.currency", "prices.dateSeen", "prices.isSale", "prices.merchant", "prices.shipping", "prices.sourceURLs", asins, brand, categories,  ... 585204 characters truncated ... yCategories__999)s, %(sourceURLs__999)s, %(upc__999)s, %(product_id__999)s, %(weightInPounds__999)s)]
+[parameters: {'prices_condition__0': 'NEW', 'weightInPounds__0': 32.8, 'imageURLs__0': 'https://images-na.ssl-images-amazon.com/images/I/71oVh2UO8xL._SL1500_.jpg,http://pisces.bbystatic.com/image2/BestBuy_US/images/products/5689/5689019_ ... (356 characters truncated) ... 10_b1_vlf410_super_slim_full_motion_1368452917000_911749.jpg,http://static.bhphoto.com/images/multiple_images/thumbnails/1368452838000_IMG_316474.jpg', 'prices_amountMin__0': 104.99, 'asins__0': 'B00C78VIUE', 'categories__0': 'Audio & Video Accessories,TV Mounts,TV Accessories & Parts,Electronics,A/V Presentation,Accessories & Supplies,TV Ceiling & Wall Mounts', 'name__0': "Sanus VLF410B1 10-Inch Super Slim Full-Motion Mount for 37 - 84 Inches TV's", 'prices_sourceURLs__0': 'http://www.bestbuy.com/site/sanus-tv-wall-mount-for-most-37-84-flat-panel-tvs-extends-10-3-8-black/5689019.p?skuId=5689019', 'prices_availability__0': 'YES', 'prices_currency__0': 'USD', 'prices_merchant__0': 'Bestbuy.com', 'prices_isSale__0': False, 'upc__0': '7.94E+11', 'brand__0': 'Sanus', 'manufacturerNumber__0': 'VLF410B1', 'id__0': 'AVphzgbJLJeJML43fA0o', 'product_id__0': 'AVphzgbJLJeJML43fA0o', 'prices_shipping__0': 0, 'prices_amountMax__0': 104.99, 'dateUpdated__0': '2018-05-12 18:59:48+00:00', 'prices_dateSeen__0': '2017-03-30T06:00:00Z,2017-03-10T22:00:00Z,2017-03-04T10:00:00Z,2017-03-03T14:00:00Z', 'dateAdded__0': '2015-04-13 12:00:51+00:00', 'keys__0': 'sanusvlf410b110inchsuperslimfullmotionmountfor3784inchestvs/savlf410b1,sanusvlf410b110inchsuperslimfullmotionmountfor3784inchestvs/b00c78viue,sanusvlf410b110inchsuperslimfullmotionmountfor3784inchestvs/5689019,sanus/vlf410b1,793795525420', 'sourceURLs__0': 'https://www.amazon.com/Sanus-VLF410B1-10-Inch-Super-Full-Motion/dp/B00C78VIUE/,https://www.amazon.com/product-reviews/B00C78VIUE/,http://reviews.best ... (1035 characters truncated) ... -Full-Motion/dp/B00C78VIUE,http://www.bestbuy.com/site/sanus-tv-wall-mount-for-most-37-84-flat-panel-tvs-extends-10-3-8-black/5689019.p?skuId=5689019', 'primaryCategories__0': 'Electronics', 'manufacturer__0': 'No Information', 'prices_condition__1': 'NEW', 'weightInPounds__1': 14.0, 'imageURLs__1': 'https://images-na.ssl-images-amazon.com/images/I/61Kics6Lb6L._SL1000_.jpg,https://images-na.ssl-images-amazon.com/images/I/711eiviQlrL._SL1000_.jpg,h ... (3013 characters truncated) ... es/I/310imryhfxL._SS40_.jpg,http://ecx.images-amazon.com/images/I/51xVLqpEVML._SS40_.jpg,http://ecx.images-amazon.com/images/I/41hUH7AbcNL._SS40_.jpg', 'prices_amountMin__1': 64.99, 'asins__1': 'B018K251JE,B00VILQKQ8', 'categories__1': 'Stereos,Portable Bluetooth Speakers,TV, Video & Home Audio,Speaker Systems,Portable Audio & Video,Electronics,See more Black BOYTONE Bt-210f 30 Watt  ... (85 characters truncated) ... ics,See more BOYTONE Bt-210f Bluetooth Wireless Speaker Mp3...,Home Theater Systems,MP3 Player Accessories,Home Audio,Audio,Cell,Stereo Shelf Systems', 'name__1': 'Boytone - 2500W 2.1-Ch. Home Theater System - Black Diamond', 'prices_sourceURLs__1': 'https://www.walmart.com/ip/BOYTONE-BT210FB-BLACK-2-1-MULTIMEDIA-SPEAKER-SYSTEM-WITH/47368142', 'prices_availability__1': 'YES', 'prices_currency__1': 'USD', 'prices_merchant__1': 'Walmart.com', 'prices_isSale__1': True, 'upc__1': '6.42E+11', 'brand__1': 'Boytone', 'manufacturerNumber__1': 'BT-210F', 'id__1': 'AVpgMuGwLJeJML43KY_c', 'product_id__1': 'AVpgMuGwLJeJML43KY_c', 'prices_shipping__1': 0, 'prices_amountMax__1': 69.0, 'dateUpdated__1': '2018-06-13 19:39:02+00:00', 'prices_dateSeen__1': '2017-12-14T06:00:00Z', 'dateAdded__1': '2015-05-18 14:14:56+00:00', 'keys__1': 'boytone2500w21chhometheatersystemblackdiamond/b018k251je,boytone2500w21chhometheatersystemblackdiamond/4784804,boytone2500w21chhometheatersystemblackdiamond/b00vilqkq8,boytone/bt210f,boytone2500w21chhometheatersystemblackdiamond/554725012,642014746682', 'sourceURLs__1': 'http://reviews.bestbuy.com/3545/4784804/reviews.htm%25253Fformat%25253Dembedded%252526page%25253D2,http://reviews.bestbuy.com/3545/4784804/reviews.ht ... (2978 characters truncated) ... 3545/4784804/reviews.htm%2525253Fformat%2525253Dembedded%25252526page%2525253D3,https://www.walmart.com/ip/Boytone-BT-210F-Bluetooth-Speaker/47368142' ... 25900 parameters truncated ... 'imageURLs__998': 'http://i.ebayimg.com/images/g/wl8AAOSwGJlZHt9M/s-l300.jpg,https://images-na.ssl-images-amazon.com/images/I/71Wx9j-K0mL._SL1500_.jpg,http://i.ebayimg. ... (8564 characters truncated) ... OSwX9FZGvlL/s-l96.jpg,http://i.ebayimg.com/thumbs/images/g/1EkAAOSwn5ZZcmrK/s-l96.jpg,http://i.ebayimg.com/thumbs/images/g/AcoAAOSwWdZZY8gx/s-l96.jpg', 'prices_amountMin__998': 2296.99, 'asins__998': 'B072HRPC28', 'categories__998': '4K Ultra HD TVs,TV, Video & Home Audio,Frys,Electronics,Televisions,TVs Entertainment,TV & Home Theater,All Flat-Panel TVs,LED & LCD TVs,All TVs,TVs,Consumer Electronics,TV & Video,4K TVs by Brand,Television & Video,4K LG TVs', 'name__998': 'LG - 75 Class - LED - UJ6470 Series - 2160p - Smart - 4K UHD TV with HDR"', 'prices_sourceURLs__998': 'http://www.ebay.com/itm/LG-75-4K-Ultra-HD-HDR-Smart-LED-TV-webOS-3-5-4-x-HDMI-2-x-USB-75UJ6470-/152543175897', 'prices_availability__998': 'YES', 'prices_currency__998': 'USD', 'prices_merchant__998': 'electronic_express', 'prices_isSale__998': False, 'upc__998': '7.19E+11', 'brand__998': 'LG', 'manufacturerNumber__998': '75UJ6470', 'id__998': 'AVzSv0OV-jtxr-f3yibR', 'product_id__998': 'AVzSv0OV-jtxr-f3yibR', 'prices_shipping__998': 0, 'prices_amountMax__998': 2296.99, 'dateUpdated__998': '2018-06-13 19:49:54+00:00', 'prices_dateSeen__998': '2017-06-26T22:00:00Z,2017-06-27T07:00:00Z,2017-06-27T19:00:00Z,2017-06-26T02:00:00Z', 'dateAdded__998': '2017-06-23 02:19:29+00:00', 'keys__998': 'lg75class4k2160psmartledtv75uj6470/564268864,lg75class4k2160psmartledtv75uj6470/292076906646,lg/75uj6470,lg75classleduj6470series2160psmart4kuhdtvwit ... (429 characters truncated) ... 52543175897,lg75class4k2160psmartledtv75uj6470/b072hrpc28,lg75inches4ksmartledtv75uj64702017/b072hrpc28,lg75class4k2160psmartledtv75uj6470/lg75uj6470', 'sourceURLs__998': 'http://www.ebay.com/itm/LG-75UJ6470-75-UHD-4K-HDR-Smart-LED-HDTV-2017-Model-/332227452615,http://www.ebay.com/itm/LG-75UJ6470-4K-UHD-HDR-Smart-LED-TV ... (3461 characters truncated) ... -2160p-smart-4k-uhd-tv-with-hdr/5878700.p%25253FskuId%25253D5878700,https://www.bhphotovideo.com/c/product/1325194-REG/lg_75uj6470_75_uhd_4k_hdr.html', 'primaryCategories__998': 'Electronics', 'manufacturer__998': 'No Information', 'prices_condition__999': 'NEW', 'weightInPounds__999': 92.6, 'imageURLs__999': 'http://i.ebayimg.com/images/g/wl8AAOSwGJlZHt9M/s-l300.jpg,https://images-na.ssl-images-amazon.com/images/I/71Wx9j-K0mL._SL1500_.jpg,http://i.ebayimg. ... (8564 characters truncated) ... OSwX9FZGvlL/s-l96.jpg,http://i.ebayimg.com/thumbs/images/g/1EkAAOSwn5ZZcmrK/s-l96.jpg,http://i.ebayimg.com/thumbs/images/g/AcoAAOSwWdZZY8gx/s-l96.jpg', 'prices_amountMin__999': 2299.99, 'asins__999': 'B072HRPC28', 'categories__999': '4K Ultra HD TVs,TV, Video & Home Audio,Frys,Electronics,Televisions,TVs Entertainment,TV & Home Theater,All Flat-Panel TVs,LED & LCD TVs,All TVs,TVs,Consumer Electronics,TV & Video,4K TVs by Brand,Television & Video,4K LG TVs', 'name__999': 'LG - 75 Class - LED - UJ6470 Series - 2160p - Smart - 4K UHD TV with HDR"', 'prices_sourceURLs__999': 'http://www.bestbuy.com/site/lg-75-class-74-5-diag--led-2160p-smart-4k-ultra-hd-tv-gray/5878700.p%25253FskuId%25253D5878700', 'prices_availability__999': 'YES', 'prices_currency__999': 'USD', 'prices_merchant__999': 'Bestbuy.com', 'prices_isSale__999': False, 'upc__999': '7.19E+11', 'brand__999': 'LG', 'manufacturerNumber__999': '75UJ6470', 'id__999': 'AVzSv0OV-jtxr-f3yibR', 'product_id__999': 'AVzSv0OV-jtxr-f3yibR', 'prices_shipping__999': 0, 'prices_amountMax__999': 2299.99, 'dateUpdated__999': '2018-06-13 19:49:54+00:00', 'prices_dateSeen__999': '2017-06-29T22:00:00Z', 'dateAdded__999': '2017-06-23 02:19:29+00:00', 'keys__999': 'lg75class4k2160psmartledtv75uj6470/564268864,lg75class4k2160psmartledtv75uj6470/292076906646,lg/75uj6470,lg75classleduj6470series2160psmart4kuhdtvwit ... (429 characters truncated) ... 52543175897,lg75class4k2160psmartledtv75uj6470/b072hrpc28,lg75inches4ksmartledtv75uj64702017/b072hrpc28,lg75class4k2160psmartledtv75uj6470/lg75uj6470', 'sourceURLs__999': 'http://www.ebay.com/itm/LG-75UJ6470-75-UHD-4K-HDR-Smart-LED-HDTV-2017-Model-/332227452615,http://www.ebay.com/itm/LG-75UJ6470-4K-UHD-HDR-Smart-LED-TV ... (3461 characters truncated) ... -2160p-smart-4k-uhd-tv-with-hdr/5878700.p%25253FskuId%25253D5878700,https://www.bhphotovideo.com/c/product/1325194-REG/lg_75uj6470_75_uhd_4k_hdr.html', 'primaryCategories__999': 'Electronics', 'manufacturer__999': 'No Information'}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2024-09-08 20:39:57,323 - DEBUG - 1 running tasks, waiting for next task to finish
+2024-09-08 20:39:57,327 - INFO - Informed scheduler that task   LoadMarketingData__99914b932b   has status   FAILED
+2024-09-08 20:39:57,328 - DEBUG - Asking scheduler for work...
+2024-09-08 20:39:57,329 - DEBUG - Done
+2024-09-08 20:39:57,330 - DEBUG - There are no more tasks to run at this time
+2024-09-08 20:39:57,331 - DEBUG - There are 1 pending tasks possibly being run by other workers
+2024-09-08 20:39:57,332 - DEBUG - There are 1 pending tasks unique to this worker
+2024-09-08 20:39:57,333 - DEBUG - There are 1 pending tasks last scheduled by this worker
+2024-09-08 20:39:57,334 - INFO - Worker Worker(salt=899329199, workers=1, host=LAPTOP-038LGA7P, username=Oscar, pid=19736) was stopped. Shutting down Keep-Alive thread
+2024-09-08 20:39:57,336 - INFO - 
+===== Luigi Execution Summary =====
+
+Scheduled 8 tasks of which:
+* 7 ran successfully:
+    - 1 ExtractMarketingData()
+    - 1 ExtractSalesData()
+    - 1 ExtractScrapingData()
+    - 1 LoadSalesData()
+    - 1 TransformMarketingData()
+    ...
+* 1 failed:
+    - 1 LoadMarketingData()
+
+This progress looks :( because there were failed tasks
+
+===== Luigi Execution Summary =====
+
+2024-09-08 23:24:47,876 - ERROR - ERROR - page 1 link 2 = https://money.kompas.com/read/2024/09/08/232203326/ojk-luruskan-kabar-dana-pensiun-tak-bisa-dicairkan-10-tahun
+2024-09-08 23:24:48,505 - ERROR - ERROR - page 1 link 3 = https://surabaya.kompas.com/read/2024/09/08/231418578/jadwal-dan-harga-tiket-kereta-api-malang-yogyakarta-terbaru-2024
+2024-09-08 23:24:49,143 - ERROR - ERROR - page 1 link 4 = https://ikn.kompas.com/read/2024/09/08/231307687/jokowi-buka-mtq-nasional-ke-30-istimewa-dan-sarat-inovasi-digital
+2024-09-08 23:24:49,969 - ERROR - ERROR - page 1 link 5 = https://bola.kompas.com/read/2024/09/08/23002038/maarten-paes-tak-sabar-dengar-indonesia-raya-dan-tanah-airku-di-gbk
+2024-09-08 23:24:50,886 - ERROR - ERROR - page 1 link 6 = https://nasional.kompas.com/read/2024/09/08/23000071/tanggal-10-september-2024-memperingati-hari-apa-
+2024-09-08 23:25:35,540 - INFO - [pid 27384] Worker Worker(salt=6828530319, workers=1, host=LAPTOP-038LGA7P, username=Oscar, pid=27384) done      ExtractScrapingData()
+2024-09-08 23:25:35,542 - DEBUG - 1 running tasks, waiting for next task to finish
+2024-09-08 23:25:35,590 - INFO - Informed scheduler that task   ExtractScrapingData__99914b932b   has status   DONE
+2024-09-08 23:25:35,591 - DEBUG - Asking scheduler for work...
+2024-09-08 23:25:35,652 - DEBUG - Pending tasks: 2
+2024-09-08 23:25:35,652 - INFO - [pid 27384] Worker Worker(salt=6828530319, workers=1, host=LAPTOP-038LGA7P, username=Oscar, pid=27384) running   TransformScrapingData()
+2024-09-08 23:25:35,922 - INFO - [pid 27384] Worker Worker(salt=6828530319, workers=1, host=LAPTOP-038LGA7P, username=Oscar, pid=27384) done      TransformScrapingData()
+2024-09-08 23:25:35,923 - DEBUG - 1 running tasks, waiting for next task to finish
+2024-09-08 23:25:35,971 - INFO - Informed scheduler that task   TransformScrapingData__99914b932b   has status   DONE
+2024-09-08 23:25:35,972 - DEBUG - Asking scheduler for work...
+2024-09-08 23:25:36,021 - DEBUG - Pending tasks: 1
+2024-09-08 23:25:36,022 - INFO - [pid 27384] Worker Worker(salt=6828530319, workers=1, host=LAPTOP-038LGA7P, username=Oscar, pid=27384) running   LoadScrapingData()
+2024-09-08 23:25:36,519 - INFO - [pid 27384] Worker Worker(salt=6828530319, workers=1, host=LAPTOP-038LGA7P, username=Oscar, pid=27384) done      LoadScrapingData()
+2024-09-08 23:25:36,521 - DEBUG - 1 running tasks, waiting for next task to finish
+2024-09-08 23:25:36,571 - INFO - Informed scheduler that task   LoadScrapingData__99914b932b   has status   DONE
+2024-09-08 23:25:36,572 - DEBUG - Asking scheduler for work...
+2024-09-08 23:25:36,620 - DEBUG - Done
+2024-09-08 23:25:36,623 - DEBUG - There are no more tasks to run at this time
+2024-09-08 23:25:36,625 - INFO - Worker Worker(salt=6828530319, workers=1, host=LAPTOP-038LGA7P, username=Oscar, pid=27384) was stopped. Shutting down Keep-Alive thread
+2024-09-08 23:25:36,628 - INFO - 
+===== Luigi Execution Summary =====
+
+Scheduled 9 tasks of which:
+* 9 ran successfully:
+    - 1 ExtractMarketingData()
+    - 1 ExtractSalesData()
+    - 1 ExtractScrapingData()
+    - 1 LoadMarketingData()
+    - 1 LoadSalesData()
+    ...
+
+This progress looks :) because there were no failed tasks or missing dependencies
+
+===== Luigi Execution Summary =====
+

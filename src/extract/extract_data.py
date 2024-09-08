@@ -8,7 +8,8 @@ import time
 import random
 import logging
 import csv
-from src.helper.db_connector_sales_data_raw import postgres_engine_sales_data
+# Menambahkan folder project ke sys.path
+from src.helper.db_connector import postgres_engine_sales_data
 
 def extract_sales_data():
     """

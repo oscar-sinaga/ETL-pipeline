@@ -1,0 +1,14 @@
+version: "3"
+services:
+  data_warehouse:
+    image: postgres:latest
+    container_name: data_warehouse
+    restart: always
+    environment:
+      - POSTGRES_DB=${DB_NAME_DWH}
+      - POSTGRES_USER=${DB_USERNAME_DWH}
+      - POSTGRES_PASSWORD=${DB_PASSWORD_DWH}
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - ${DB_PORT_DWH}:5432

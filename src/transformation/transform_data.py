@@ -113,11 +113,19 @@ def transform_marketing_data(df_marketing):
     # Remove duplicate rows from the DataFrame.
     df_marketing = df_marketing.drop_duplicates()
 
+    # Change name of columns "id" to "product_id"
+    df_marketing = df_marketing.rename(columns={'id':'product_id'})
+
     # Apply data cleaning functions.
     df_marketing['weightInPounds'] = df_marketing['weight'].apply(convert_to_pounds)  # Convert weight to pounds.
     df_marketing['prices.availability'] = df_marketing['prices.availability'].apply(cleaning_unique_values_prices_availability)  # Standardize availability.
     df_marketing['prices.condition'] = df_marketing['prices.condition'].str.upper().str.replace('NEW OTHER (SEE DETAILS)', 'NEW')  # Clean and standardize condition.
     
+    # Mengubah kolom menjadi datetime
+    df_marketing['dateAdded'] = pd.to_datetime(df_marketing['dateAdded'])
+    df_marketing['dateUpdated'] = pd.to_datetime(df_marketing['dateUpdated'])
+
+
     # Drop rows where 'prices.condition' contains unwanted values (the last 2 unique values).
     df_marketing = df_marketing[~(df_marketing['prices.condition'].isin(list(df_marketing['prices.condition'].unique()[-2:])))]
 
@@ -139,6 +147,25 @@ def transform_marketing_data(df_marketing):
     # Drop the 'ean' column if it exists, as it has more than 75% missing values.
     if 'ean' in df_marketing.columns:
         df_marketing = df_marketing.drop('ean', axis=1)
+    # Rename columns if "." in column , change to "_"
+    rename_columns = {}
+
+    for column in df_marketing.columns:
+        if '.' in column:
+            rename_columns[column] = '_'.join(column.split('.'))
+
+    df_marketing = df_marketing.rename(columns=rename_columns)
+
+    # Ubah nama kolom dari camelCase ke snake_case
+    # Fungsi untuk mengubah camelCase ke snake_case
+    def camel_to_snake(column_name):
+    # Ganti 'URLs' dengan 'urls'
+        column_name = re.sub(r'RLs', 'rls', column_name)
+        # Konversi camelCase ke snake_case
+        return re.sub(r'(?<!^)(?=[A-Z])', '_', column_name).lower()
+
+    # Mengubah nama kolom dengan rename() menggunakan fungsi camel_to_snake
+    df_marketing = df_marketing.rename(columns=camel_to_snake)
 
     return df_marketing  # Return the cleaned DataFrame
 
@@ -169,6 +196,10 @@ def transform_scraping_data(df_scraping):
 
     # Fill missing values in the 'advetorial' column with 'Non Advertorial', indicating that the content is not an advertisement.
     df_scraping['advetorial'] = df_scraping['advetorial'].fillna('Non Advertorial')
+
+    # Menghapus "WIB" dan konversi menjadi datetime
+    df_scraping['tanggal_waktu_publish'] = df_scraping['tanggal_waktu_publish'].str.replace(' WIB', '')
+    df_scraping['tanggal_waktu_publish'] = pd.to_datetime(df_scraping['tanggal_waktu_publish'], format='%d/%m/%Y, %H:%M')
 
     # Drop the 'topik_pilihan_link' column as it is not needed.
     df_scraping = df_scraping.drop('topik_pilihan_link', axis=1)
