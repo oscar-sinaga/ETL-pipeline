@@ -26,22 +26,22 @@ def transform_sales_data(df_sales):
         try:
             return float(ratings.replace(',', '.'))
         except:
-            return np.NaN  # Returns NaN if conversion fails (e.g., missing or invalid values)
+            return np.nan  # Returns nan if conversion fails (e.g., missing or invalid values)
 
     # Function to convert the number of ratings from string to integers, removing commas and dots.
     def clean_no_ratings(no_ratings):
         try:
             return int(no_ratings.replace(',', '').replace('.', ''))
         except:
-            return np.NaN  # Returns NaN for consistency with other missing values
+            return np.nan # Returns nan for consistency with other missing values
 
     # Apply the cleaning functions to the 'ratings' and 'no_of_ratings' columns.
     df_sales['ratings'] = df_sales['ratings'].apply(clean_ratings).fillna(0)
     df_sales['no_of_ratings'] = df_sales['no_of_ratings'].apply(clean_no_ratings)
 
     # Clean the price columns: remove currency symbols and commas, then convert the result to float.
-    df_sales['actual_price'] = df_sales['actual_price'].str.replace('₹', '').str.replace(',', '').replace('', np.NaN).astype('float')
-    df_sales['discount_price'] = df_sales['discount_price'].str.replace('₹', '').str.replace(',', '').replace('', np.NaN).astype('float')
+    df_sales['actual_price'] = df_sales['actual_price'].str.replace('₹', '').str.replace(',', '').replace('', np.nan).astype('float')
+    df_sales['discount_price'] = df_sales['discount_price'].str.replace('₹', '').str.replace(',', '').replace('', np.nan).astype('float')
 
     # Handle missing values: Fill missing 'ratings' with 0.
     df_sales['ratings'] = df_sales['ratings'].fillna(0)
@@ -104,7 +104,7 @@ def transform_marketing_data(df_marketing):
             total_pounds = pounds + (ounces * ounces_to_pounds)
             return total_pounds
         except:
-            return np.NaN  # Return NaN if conversion fails.
+            return np.nan  # Return nan if conversion fails.
 
     # Drop the 'Unnamed: 0' column if it exists, as it's often unnecessary.
     if 'Unnamed: 0' in df_marketing.columns:

@@ -4,5 +4,11 @@
 # Ignore Python cache files
 __pycache__/
 
-#Ignore all data in folder data
-data/
+# Ignore all data in folder data and its subdirectories
+data/extract/*
+data/transform/*
+data/load/*
+
+# Ignore all data in specified data source folders
+data_source/marketing_data/*
+data_source/scraping_data/*

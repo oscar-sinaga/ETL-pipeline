@@ -64,10 +64,12 @@ def extract_scraping_data(pages=5, csv_filename='data_source/scraping_data/scrap
     Returns:
         pd.DataFrame: DataFrame containing the scraped news data.
     """
-    # Configure logging
-    logging.basicConfig(filename='data_source/scraping_data/scraping.log',
-                        level=logging.INFO,
-                        format='%(asctime)s - %(levelname)s - %(message)s')
+    # Create a dedicated logger for the scraping function
+    logger = logging.getLogger('scraping_logger')
+    logger.setLevel(logging.INFO)
+    handler = logging.FileHandler('log/scraping.log')
+    handler.setFormatter(logging.Formatter('%(asctime)s - %(levelname)s - %(message)s'))
+    logger.addHandler(handler)
 
     RED = "\033[91m"  # Red color for errors
 
