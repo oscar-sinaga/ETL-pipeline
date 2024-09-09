@@ -199,6 +199,7 @@ def transform_scraping_data(df_scraping):
 
     # Menghapus "WIB" dan konversi menjadi datetime
     df_scraping['tanggal_waktu_publish'] = df_scraping['tanggal_waktu_publish'].str.replace(' WIB', '')
+    df_scraping['tanggal_waktu_publish'] = df_scraping['tanggal_waktu_publish'].str.replace(' WIB', '').str.replace('Diperbarui ','')
     df_scraping['tanggal_waktu_publish'] = pd.to_datetime(df_scraping['tanggal_waktu_publish'], format='%d/%m/%Y, %H:%M')
 
     # Drop the 'topik_pilihan_link' column as it is not needed.

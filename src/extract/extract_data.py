@@ -8,6 +8,7 @@ import time
 import random
 import logging
 import csv
+from tqdm import tqdm
 # Menambahkan folder project ke sys.path
 from src.helper.db_connector import postgres_engine_sales_data
 
@@ -83,7 +84,7 @@ def extract_scraping_data(pages=5, csv_filename='data_source/scraping_data/scrap
             writer.writeheader()
 
         # Loop through each page to scrape articles
-        for i in range(1, pages + 1):
+        for i in tqdm(range(1, pages + 1), desc="Scraping pages"):
             try:
                 url = f"https://indeks.kompas.com/?site=all&page={i}"
                 response = requests.get(url)
@@ -91,7 +92,7 @@ def extract_scraping_data(pages=5, csv_filename='data_source/scraping_data/scrap
                 links = [link.get('href') for link in soup.find_all('a', class_='article-link')]
 
                 # Loop through each article link
-                for j, link in enumerate(links):
+                for j, link in enumerate(tqdm(links, desc=f"Scraping articles on page {i}", leave=False)):
                     try:
                         response_news = BeautifulSoup(requests.get(link).text, 'html.parser')
 

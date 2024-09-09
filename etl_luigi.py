@@ -41,35 +41,35 @@ class ExtractScrapingData(luigi.Task):
     def run(self):
         extract_scraping_data(pages=1).to_csv(self.output().path,index=False)
 
-# class ValidateData(luigi.Task):
+class ValidateData(luigi.Task):
 
-#     def requires(self):
-#         return [ExtractSalesData(),
-#                 ExtractMarketingData(),
-#                 ExtractScrapingData()]
+    def requires(self):
+        return [ExtractSalesData(),
+                ExtractMarketingData(),
+                ExtractScrapingData()]
     
-#     def output(self):
-#         return luigi.LocalTarget('data/validate/validate_data.txt')
+    def output(self):
+        pass
 
-#     def run(self):
-#         # read sales data
-#         validate_sales_data = pd.read_csv(self.input()[0].path)
+    def run(self):
+        # read sales data
+        validate_sales_data = pd.read_csv(self.input()[0].path)
 
-#         # read marketing data
-#         validate_marketing_data = pd.read_csv(self.input()[1].path)
+        # read marketing data
+        validate_marketing_data = pd.read_csv(self.input()[1].path)
 
-#         # read journal data
-#         validate_scraping_data = pd.read_csv(self.input()[2].path)
+        # read journal data
+        validate_scraping_data = pd.read_csv(self.input()[2].path)
 
-#         # validate data
-#         validation_process(df = validate_sales_data,
-#                            table_name = "sales")
+        # validate data
+        validation_process(df = validate_sales_data,
+                           table_name = "sales")
         
-#         validation_process(df = validate_marketing_data,
-#                            table_name = "marketing")
+        validation_process(df = validate_marketing_data,
+                           table_name = "marketing")
         
-#         validation_process(df = validate_scraping_data,
-#                            table_name = "scraping")
+        validation_process(df = validate_scraping_data,
+                           table_name = "scraping")
 
 class TransformSalesData(luigi.Task):
 
@@ -126,60 +126,71 @@ class TransformScrapingData(luigi.Task):
         scraping_df.to_csv(self.output().path, index = False)
         
 
-class LoadSalesData(luigi.Task):
+# class LoadSalesData(luigi.Task):
 
-    def requires(self):
-        return TransformSalesData()
+#     def requires(self):
+#         return TransformSalesData()
     
-    def output(self):
-        return luigi.LocalTarget("data/load/load_sales_data.csv")
+#     def output(self):
+#         return luigi.LocalTarget("data/load/load_sales_data.csv")
     
-    def run(self):
-        # read data from previous task
-        sales_df_transformed = pd.read_csv(self.input().path)
+#     def run(self):
+#         # read data from previous task
+#         sales_df_transformed = pd.read_csv(self.input().path)
 
-        # read data from previous task Load the data to the DWH
-        load_sales_data(pd.read_csv(self.input().path))
+#         # read data from previous task Load the data to the DWH
+#         load_sales_data(pd.read_csv(self.input().path))
 
-        # save the output
-        sales_df_transformed.to_csv(self.output().path, index = False)
+#         # save the output
+#         sales_df_transformed.to_csv(self.output().path, index = False)
         
 
-class LoadMarketingData(luigi.Task):
+# class LoadMarketingData(luigi.Task):
+
+#     def requires(self):
+#         return TransformMarketingData()
+    
+#     def output(self):
+#         return luigi.LocalTarget("data/load/load_marketing_data.csv")
+    
+#     def run(self):
+#         # read data from previous task
+#         marketing_df_transformed = pd.read_csv(self.input().path)
+
+#         # Load the data to the DWH
+#         load_marketing_data(marketing_df_transformed)
+
+#         # save the output
+#         marketing_df_transformed.to_csv(self.output().path, index = False)
+
+class LoadData(luigi.Task):
 
     def requires(self):
-        return TransformMarketingData()
+        return [TransformSalesData(),
+                TransformMarketingData(),
+                TransformScrapingData()]
     
     def output(self):
-        return luigi.LocalTarget("data/load/load_marketing_data.csv")
+        return [luigi.LocalTarget("data/load/load_sales_data.csv"),
+                luigi.LocalTarget("data/load/load_marketing_data.csv"),   
+                luigi.LocalTarget("data/load/load_scraping_data.csv")
+                ]
     
     def run(self):
         # read data from previous task
-        marketing_df_transformed = pd.read_csv(self.input().path)
+        sales_df_transformed = pd.read_csv(self.input()[0].path)
+        marketing_df_transformed = pd.read_csv(self.input()[1].path)
+        scraping_df_transformed = pd.read_csv(self.input()[2].path)
 
         # Load the data to the DWH
+        load_sales_data(sales_df_transformed)
         load_marketing_data(marketing_df_transformed)
-
-        # save the output
-        marketing_df_transformed.to_csv(self.output().path, index = False)
-
-class LoadScrapingData(luigi.Task):
-
-    def requires(self):
-        return TransformScrapingData()
-    
-    def output(self):
-        return luigi.LocalTarget("data/load/load_scraping_data.csv")
-    
-    def run(self):
-        # read data from previous task
-        scraping_df_transformed = pd.read_csv(self.input().path)
-
-        # Load the data to the DWH
         load_scraping_data(scraping_df_transformed)
 
         # save the output
-        scraping_df_transformed.to_csv(self.output().path, index = False)
+        sales_df_transformed.to_csv(self.output()[0].path, index = False)
+        marketing_df_transformed.to_csv(self.output()[1].path, index = False)
+        scraping_df_transformed.to_csv(self.output()[2].path, index = False)
 
 if __name__ == "__main__":
     
@@ -187,14 +198,15 @@ if __name__ == "__main__":
                 [
                     ExtractSalesData(),
                     TransformSalesData(),
-                    LoadSalesData(),
+                    # LoadSalesData(),
                     ExtractMarketingData(),
                     TransformMarketingData(),
-                    LoadMarketingData(),
+                    # LoadMarketingData(),
                     ExtractScrapingData(),
                     TransformScrapingData(),
-                    LoadScrapingData(),
-                    # ValidateData(),
+                    ValidateData(),
+                    LoadData()
+                    # LoadScrapingData(),
 
                 ]
                 )
