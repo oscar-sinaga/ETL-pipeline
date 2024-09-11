@@ -1,7 +1,25 @@
 #!/bin/bash
 
+# Cek apakah virtual environment sudah ada
+if [ ! -d "$VENV_DIRECTORY" ]; then
+  echo "Virtual environment belum ada, membuat virtual environment..."
+  # Buat virtual environment
+  python3 -m venv "$ETL_DIRECTORY"
+  
+  # Aktifkan virtual environment
+  source "$VENV_DIRECTORY"
+
+  # Instal dependencies
+  pip install -r "$ETL_DIRECTORY/requirements.txt"
+else
+  echo "Virtual environment sudah ada, melewati pembuatan dan instalasi dependencies."
+  
+  # Aktifkan virtual environment
+  source "$VENV_DIRECTORY"
+fi
+
 #Locate Directory
-cd "/mnt/h/My Drive/pacmann/Intro to DE/ETL-pipeline"
+cd "$ETL_DIRECTORY"
 
 # Ensure log directory exists
 mkdir -p "log"
@@ -10,12 +28,6 @@ mkdir -p "log"
 dt=$(date '+%d/%m/%Y %H:%M:%S');
 echo "Luigi Started at ${dt}" >> "log/luigi-info.log"
 echo "Start Luigi ETL Pipeline Process at ${dt} "
-
-# Virtual Environment Path
-VENV_PATH="/home/oscar-sinaga/venv_etl/bin/activate"
-
-# Activate venv
-source "$VENV_PATH"
 
 # Run Luigi Visualizer
 luigid --port 8082 > /dev/null 2> /dev/null &
