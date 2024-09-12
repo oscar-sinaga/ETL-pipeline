@@ -1,29 +1,11 @@
 #!/bin/bash
-
-# Cek apakah virtual environment sudah ada
-if [ ! -d "$VENV_DIRECTORY" ]; then
-  echo "Virtual environment belum ada, membuat virtual environment..."
-  # Buat virtual environment
-  python3 -m venv "$ETL_DIRECTORY"
-  
-  # Aktifkan virtual environment
-  source "$VENV_DIRECTORY"
-
-  # Instal dependencies
-  pip install -r "$ETL_DIRECTORY/requirements.txt"
-else
-  echo "Virtual environment sudah ada, melewati pembuatan dan instalasi dependencies."
-  
-  # Aktifkan virtual environment
-  source "$VENV_DIRECTORY"
-fi
-
 #Locate Directory
-cd "$ETL_DIRECTORY"
-
+cd "/mnt/h/My Drive/pacmann/Intro to DE/ETL-pipeline"
 # Ensure log directory exists
 mkdir -p "log"
 
+# Aktifkan virtual environment
+source "/home/oscar-sinaga/venv_etl/bin/activate"
 # Logging simple
 dt=$(date '+%d/%m/%Y %H:%M:%S');
 echo "Luigi Started at ${dt}" >> "log/luigi-info.log"

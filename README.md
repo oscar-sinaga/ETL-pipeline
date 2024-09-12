@@ -127,5 +127,5 @@
    ```
    Kemudian di crontab scroll ke bawah dan tulis ini
    ```
-    */3 * * * * /bin/bash "ETL_DIRECTORY" >> "/mnt/h/My Drive/pacmann/Intro to DE/ETL-pipeline/log/log_crontab.log" 2>&1
+   $ */3 * * * * /bin/bash "$ETL_DIRECTORY" >> "$ETL_DIRECTORY/log_crontab.log" 2>&1
    ```
