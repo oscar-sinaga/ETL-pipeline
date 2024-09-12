@@ -131,7 +131,7 @@
    ```
    Kemudian di crontab scroll ke bawah dan tulis ini jika ingin jadwalnya setiap 3 menit sekali
    ```
-   */3 * * * * /bin/bash "$ETL_DIRECTORY" >> "$ETL_DIRECTORY/log_crontab.log" 2>&1
+   */3 * * * * /bin/bash "$ETL_DIRECTORY/run_etl_luigi.sh" >> "$ETL_DIRECTORY/log_crontab.log" 2>&1
    ```
 
 ## Testing Scenario
