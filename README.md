@@ -20,7 +20,7 @@
     - Data yang udh terkumpul kemudian akan dicleaning masing-masing sesuai kebutuhan misalnya hapus atau imputasi data kosong, casting data, hapus kolom yang tidak digunakan dll
   - Load
     - Data-data yang sudah dicleaning akan disimpan atau dipusatkan dalam satu database warehouse yang dibuat dengan image docker postgreSQL.
-    - Nantinya akan disimpan 3 table berbeda di database warehouse
+    - Nantinya akan disimpan 3 table berbeda di database warehouse tersebut.
 - Proses data pipeline ini akan dilakukan otomasi dan penjadwalan secara berkala agar data dapat terupdate terus di database.
 
 ## Data Source
@@ -81,13 +81,17 @@
   - PostgreSQL
   - Docker
   - Crontab (Scheduler)
-  - BeautifulSoup (Untuk Scraping)
+  - BeautifulSoup (Scraping)
 
 ## ETL Pipeline Design
 
 ---
 
 ![ETL Pipeline Diagram](./asset/ETL-pipeline-Flow.png)
+
+## ETL Pipeline Result
+
+![ETl Pipeline Result](./asset/ETL-luigi.png)
 
 ## Cara menjalankan
 
@@ -121,11 +125,26 @@
    $ ./run_etl_luigi.sh
    ```
 
-5. Jalankan schduler dengan membuka crontab
+5. Jalankan scehduler dengan membuka crontab
    ```bash
    $ crontab -e
    ```
-   Kemudian di crontab scroll ke bawah dan tulis ini
+   Kemudian di crontab scroll ke bawah dan tulis ini jika ingin jadwalnya setiap 3 menit sekali
    ```
-   $ */3 * * * * /bin/bash "$ETL_DIRECTORY" >> "$ETL_DIRECTORY/log_crontab.log" 2>&1
+   */3 * * * * /bin/bash "$ETL_DIRECTORY" >> "$ETL_DIRECTORY/log_crontab.log" 2>&1
    ```
+
+## Testing Scenario
+
+Untuk mengetes database warehouse apakah sudah berjalan dengan baik dan bisa menambah data baru, disini kita akan akan coba menambah data baru ke tabel `sales`
+
+1. Menambah langsung dengan menggunakan syntax SQL di dengan PostgreSQL atau
+2. Dengan melakukan proses "Upsert" di Python.
+
+### **Data sebelum UPSERT**
+
+![ETl Pipeline Result](./asset/test-scenario-before.png)
+
+### **Data Setelah UPSERT**
+
+![ETl Pipeline Result](./asset/test-scenario-after.png)
