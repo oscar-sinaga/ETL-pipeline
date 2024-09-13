@@ -5,7 +5,7 @@
 ---
 
 - Tim Sales ini melakukan analisis mengenai pengaruh harga diskon dan harga jual terhadap rating produk. Mereka sudah mempunyai data penjualan barang di Database PostgreSQL. Namun masih banyak data mereka yang kosong, tidak konsisten dan formatnya belum benar sehingga menyulitkan mereka untuk melakukan analisis.
-- Tim Product ingin melakukan analisis mengenai pengaruh berat produk terhadap harga. Mereka sudah mempunyai datanya dalam bentuk csv tetapi mereka ingin data tersebut berada terpusat di database agar mudah untuk diambil. Selain itu data mereka memiliki format data yang masih berantakan, datanya tidak konsisten dan banyak missing value.
+- Tim Marketing ingin melakukan analisis mengenai pengaruh berat produk terhadap harga. Mereka sudah mempunyai datanya dalam bentuk csv tetapi mereka ingin data tersebut berada terpusat di database agar mudah untuk diambil. Selain itu data mereka memiliki format data yang masih berantakan, datanya tidak konsisten dan banyak missing value.
 - Tim Data Scientist ingin melakukan research mengenai cara meringkas berita dengan menggunakan NLP, namun mereka belum memiliki data berita sama sekali.
 
 ## Solution
@@ -100,34 +100,35 @@
 1. Jalankan dulu script di bawah untuk terhubung dengan data Sales. Data Sales ini berasal dari database PostgreSQL yang dibuat dengan Docker image.
 
    ```bash
-   $ docker pull shandytp/amazon-sales-data-docker-db
-   $ docker run -d -p 5433:5432 --name sales_data_amazon shandytp/amazon-sales-data-docker-db:latest
+   docker pull shandytp/amazon-sales-data-docker-db
+   docker run -d -p 5433:5432 --name sales_data_amazon shandytp/amazon-sales-data-docker-db:latest
    ```
 
 2. Buat Docker image dan jalankan container database warehouse (PostgreSQL) untuk menyimpan(load) output hasil cleaningnya.
 
    ```bash
-   $ cd data-warehouse
-   $ docker compose up -d
+   cd data-warehouse
+   docker compose up -d
    ```
 
 3. Gunakan Python 3.11 dan buat enviroments kemudian install package python pada requirements.txt:
 
    ```bash
-   $ python3 -m venv "$VENV_DIRECTORY"
-   $ pip install requirements.txt
+   python3 -m venv "$VENV_DIRECTORY"
+   source "$VENV_DIRECTORY"
+   pip install requirements.txt
    ```
 
 4. Jalankan Script run_etl_luigi.sh pada terminal linux atau bash
 
    ```bash
-   $ chmod +x run_etl_luigi.sh
-   $ ./run_etl_luigi.sh
+   chmod +x run_etl_luigi.sh
+   ./run_etl_luigi.sh
    ```
 
 5. Jalankan scehduler dengan membuka crontab
    ```bash
-   $ crontab -e
+   crontab -e
    ```
    Kemudian di crontab scroll ke bawah dan tulis ini jika ingin jadwalnya setiap 3 menit sekali
    ```
